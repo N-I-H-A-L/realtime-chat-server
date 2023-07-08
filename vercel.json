@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "Realtime Chat App",
+    "name": "realtime-chat-app",
     "builds": [
       { "src": "script.js", "use": "@vercel/node" }
     ],
