@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "name": "Realtime Chat App",
+    "builds": [
+      { "src": "script.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/index.js" }
+    ]
+  }
+  
