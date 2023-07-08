@@ -10,6 +10,10 @@ const port = process.env.port || 5000;
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"],
+    },
 });
 
 //On the localhost:5000 it should say, 'Server is up and running'. Because of router.
