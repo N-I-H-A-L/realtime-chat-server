@@ -12,14 +12,20 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: "*",
-        methods: ["GET", "POST"],
+        methods: ["GET", "POST","PUT","DELETE"],
     },
 });
+
+let corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+}
+
 
 //On the localhost:5000 it should say, 'Server is up and running'. Because of router.
 const router = require('./router');
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(router);
 
 io.on('connect', (socket) => {
