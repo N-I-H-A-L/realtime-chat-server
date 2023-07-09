@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users.js');
 
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
 const app = express();
 const server = http.createServer(app);
@@ -16,16 +16,10 @@ const io = new Server(server, {
     },
 });
 
-let corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
-}
-
-
 //On the localhost:5000 it should say, 'Server is up and running'. Because of router.
 const router = require('./router');
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(router);
 
 io.on('connect', (socket) => {
